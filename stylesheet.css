@@ -1,0 +1,10 @@
+/* CSS Document */
+@charset "utf-8";
+
+div {
+  font: 20px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.time {
+  color: purple;
+}

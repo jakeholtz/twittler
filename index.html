@@ -3,25 +3,23 @@
   <head>
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
+    <link rel="stylesheet" type="text/css" media="all" href="stylesheet.css"
   </head>
   <body>
     <script>
-
       $(document).ready(function(){
         var $body = $('body');
         $body.html('');
-
         var index = streams.home.length - 1;
         while(index >= 0){
           var tweet = streams.home[index];
           var $tweet = $('<div></div>');
+          $($tweet).css("color", "#1b95e0");
           $tweet.text('@' + tweet.user + ': ' + tweet.message + " — " + tweet.created_at);
           $tweet.appendTo($body);
           index -= 1;
         }
-
       });
-
     </script>
   </body>
 </html>
