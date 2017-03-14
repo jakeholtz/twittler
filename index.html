@@ -10,12 +10,21 @@
       $(document).ready(function(){
         var $body = $('body');
         $body.html('');
+        $('body').prepend('<nav class="nav_list"></nav>');
+        var addToNav = function(item) {
+          $('.nav_list').append(item);
+        }
+        addToNav('<button>Twittler</button>');
+        addToNav('<button><a href="index.html">News Feed</a></button>');
+        addToNav('<button><a href="user_page.html">Following</a></button>');
         var index = streams.home.length - 1;
         while(index >= 0){
           var tweet = streams.home[index];
-          var $tweet = $('<div></div>');
-          $($tweet).css("color", "#1b95e0");
-          $tweet.text('@' + tweet.user + ': ' + tweet.message + " — " + tweet.created_at);
+          var $tweet = $('<div class="tweet"></div>');
+          $tweet.text('@' + tweet.user + ': ' + tweet.message);
+          $created_at = tweet.created_at
+          $tweet.append('<aside></aside>');
+          $('aside').text($created_at);
           $tweet.appendTo($body);
           index -= 1;
         }
