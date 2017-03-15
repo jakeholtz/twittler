@@ -21,7 +21,7 @@
         var index = streams.users.douglascalhoun.length - 1;
         while(index >= 0){
           var tweet = streams.users.douglascalhoun[index].message;
-          var $tweet = $('<div></div>');
+          var $tweet = $('<div class ="tweet"></div>');
           $tweet.text('@douglascalhoun: ' + streams.users.douglascalhoun[index].message)
           $section.append($tweet);
           $created_at = streams.users.douglascalhoun[index].created_at
