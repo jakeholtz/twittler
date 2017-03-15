@@ -18,13 +18,13 @@
         appendToBody('<header class="panels"><a href="index.html"><img src="twittler_faux_logo_long_blue.png" alt="Twittler"></a></header>', '<section class="panels"></section>');
         var $section = $body.find('section');
         $section.append('<h1>douglascalhoun\'s Tweets</h1>')
-        var index = streams.home.length - 1;
+        var index = streams.users.douglascalhoun.length - 1;
         while(index >= 0){
-          var tweet = streams.home[index];
-          var $tweet = $('<a class="tweet" href="user-' + streams.home[index].user + '.html"></a>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message).addClass('link');
+          var tweet = streams.users.douglascalhoun[index].message;
+          var $tweet = $('<div></div>');
+          $tweet.text('@douglascalhoun: ' + streams.users.douglascalhoun[index].message)
           $section.append($tweet);
-          $created_at = tweet.created_at
+          $created_at = streams.users.douglascalhoun[index].created_at
           $tweet.append('<aside class="smalltext"></aside>');
           $('aside').text($created_at);
           index -= 1;
