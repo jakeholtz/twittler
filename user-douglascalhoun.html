@@ -17,7 +17,7 @@
         }
         appendToBody('<header class="panels"><a href="index.html"><img src="twittler_faux_logo_long_blue.png" alt="Twittler"></a></header>', '<section class="panels"></section>');
         var $section = $body.find('section');
-        $section.append('<h1>New Tweets</h1>')
+        $section.append('<h1>douglascalhoun\'s Tweets</h1>')
         var index = streams.home.length - 1;
         while(index >= 0){
           var tweet = streams.home[index];
@@ -34,18 +34,3 @@
     </script>
   </body>
 </html>
-/*
-
-STEPS
-***1) Show the user new tweets somehow. (You can show them automatically as they're
-created, or create a button that displays new tweets.)
-
-2)***Display the timestamps of when the tweets were created. This timestamp should
-reflect the actual time the tweets were created, and should not just be
-hardcoded.
-
-3)***Design your interface so that you want to look at and use the product you're
-making.
-
-4) Allow the user to click on a username to see that user's timeline.
-*/
