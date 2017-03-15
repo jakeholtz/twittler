@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="jquery.js"></script>
+    <script src="data_generator.js"></script>
+    <link rel="stylesheet" type="text/css" media="all" href="stylesheet.css"
+  </head>
+  <body>
+    <script>
+      $(document).ready(function(){
+        // creates body
+        var $body = $('body');
+        $body.html('');
+        // create append body formula
+        var appendToBody = function() {
+          for (var i = 0; i < arguments.length; i++) {
+            $('body').append(arguments[i]);
+          }
+        }
+        appendToBody('<header class="panels"><img src="twittler_faux_logo_long_blue.png" alt="Twittler"</header>', '<section class="panels"></section>');
+        var $section = $body.find('section');
+        // $section.append('<h1>New Tweets</h1>')
+        var index = streams.home.length - 1;
+        while(index >= 0){
+          var tweet = streams.home[index];
+          var $tweet = $('<div class="tweet"><a href="user_page.html"></a></div>');
+          var $user = tweet.user;
+          var $message= tweet.message;
+          var $created_at = tweet.created_at;
+          $tweet.text('@' + $user + ': ' + $message);
+          $tweet.append('<aside></aside>');
+          $('aside').text($created_at);
+          $section.append($tweet);
+          index -= 1;
+        }
+      });
+    </script>
+  </body>
+</html>
+/*
+
+STEPS
+***1) Show the user new tweets somehow. (You can show them automatically as they're
+created, or create a button that displays new tweets.)
+
+2)***Display the timestamps of when the tweets were created. This timestamp should
+reflect the actual time the tweets were created, and should not just be
+hardcoded.
+
+3)***Design your interface so that you want to look at and use the product you're
+making.
+
+4) Allow the user to click on a username to see that user's timeline.
+*/

@@ -8,24 +8,30 @@
   <body>
     <script>
       $(document).ready(function(){
+        // creates body
         var $body = $('body');
         $body.html('');
-        $('body').prepend('<nav class="nav_list"></nav>');
-        var addToNav = function(item) {
-          $('.nav_list').append(item);
+        // create append body formula
+        var appendToBody = function() {
+          for (var i = 0; i < arguments.length; i++) {
+            $('body').append(arguments[i]);
+          }
         }
-        addToNav('<button>Twittler</button>');
-        addToNav('<button><a href="index.html">News Feed</a></button>');
-        addToNav('<button><a href="user_page.html">Following</a></button>');
+        appendToBody('<header class="panels"><img src="twittler_faux_logo_long_blue.png" alt="Twittler"</header>', '<section class="panels"></section>');
+        var $section = $body.find('section');
+        $section.append('<h1>New Tweets</h1>')
+        // addToNav('<header><img src="twittler_faux_logo.png" alt="logo" class="logo"></header>');
+        // // addToNav('<button><a href="index.html">News Feed</a></button>');
+        // // addToNav('<button><a href="user_page.html">Following</a></button>');
         var index = streams.home.length - 1;
         while(index >= 0){
           var tweet = streams.home[index];
           var $tweet = $('<div class="tweet"></div>');
           $tweet.text('@' + tweet.user + ': ' + tweet.message);
+          $section.append($tweet);
           $created_at = tweet.created_at
           $tweet.append('<aside></aside>');
           $('aside').text($created_at);
-          $tweet.appendTo($body);
           index -= 1;
         }
       });
@@ -35,14 +41,14 @@
 /*
 
 STEPS
-1) Show the user new tweets somehow. (You can show them automatically as they're
+***1) Show the user new tweets somehow. (You can show them automatically as they're
 created, or create a button that displays new tweets.)
 
-2) Display the timestamps of when the tweets were created. This timestamp should
+2)***Display the timestamps of when the tweets were created. This timestamp should
 reflect the actual time the tweets were created, and should not just be
 hardcoded.
 
-3) Design your interface so that you want to look at and use the product you're
+3)***Design your interface so that you want to look at and use the product you're
 making.
 
 4) Allow the user to click on a username to see that user's timeline.
