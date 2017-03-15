@@ -19,7 +19,10 @@ h1 {
 img {
       padding: 0 25% 0 25%;
 }
-aside {
+footer {
+      padding: 4% 0 1% 0;
+}
+.smalltext {
       font: italic 65% "Helvetica Neue";
       color: grey;
 }
@@ -31,4 +34,5 @@ aside {
 }
 .tweet {
       color: #1b95e0;
+      text-decoration: none;
 }

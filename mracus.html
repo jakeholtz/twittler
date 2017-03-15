@@ -8,28 +8,32 @@
   <body>
     <script>
       $(document).ready(function(){
+        // creates body
         var $body = $('body');
         $body.html('');
+        // create append body formula
         var appendToBody = function() {
           for (var i = 0; i < arguments.length; i++) {
             $('body').append(arguments[i]);
           }
         }
-        appendToBody('<header class="panels"><a href="index.html"><img src="twittler_faux_logo_long_blue.png" alt="Twittler"></a></header>', '<section class="panels"></section>');
+        appendToBody('<header class="panels"><img src="twittler_faux_logo_long_blue.png" alt="Twittler"</header>', '<section class="panels"></section>');
         var $section = $body.find('section');
-        $section.append('<h1>New Tweets</h1>')
+        // $section.append('<h1>New Tweets</h1>')
         var index = streams.home.length - 1;
         while(index >= 0){
           var tweet = streams.home[index];
-          var $tweet = $('<a class="tweet" href=' + streams.home[index].user + '.html></a>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message).addClass('link');
-          $section.append($tweet);
-          $created_at = tweet.created_at
+          var $tweet = $('<div class="tweet"><a href="user_page.html"></a></div>');
+          var $user = tweet.user;
+          var $message= tweet.message;
+          var $created_at = tweet.created_at;
+          $tweet.text('@' + $user + ': ' + $message);
           $tweet.append('<aside class="smalltext"></aside>');
           $('aside').text($created_at);
+          $section.append($tweet);
           index -= 1;
         }
-        appendToBody('<footer class="smalltext">"Created March 2017 by Jake Holtz"</footer>');
+        appendToBody('<footer class="smalltext">Created March 2017 by Jake Holtz</footer>')
       });
     </script>
   </body>
